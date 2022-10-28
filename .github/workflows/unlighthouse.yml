@@ -15,7 +15,7 @@ jobs:
         run: npm add -g @unlighthouse/cli puppeteer
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site www.getthit.com --budget 100 --build-static --debug
+        run: unlighthouse-ci --site www.getthit.com --budget 1 --build-static --debug
 
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
