@@ -20,6 +20,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
             name: my-artifact
-            path: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/'        
+            path: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthouse'        
 
      
