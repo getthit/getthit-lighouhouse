@@ -31,7 +31,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: RLwUl8VOHH-OjQ77dPMcljtMvrE5qFKuds4WBIdFDAk
           NETLIFY_SITE_ID: a74ab122-7377-47ab-84b3-67808603c19b
-        timeout-minutes: 2
+        timeout-minutes: 20
       - run: "echo 'outputs.deploy-url: ${{ steps.deploy-to-netlify.outputs.deploy-url }}'"
       
       - name: Deploy report to Netlify
