@@ -16,19 +16,10 @@ jobs:
 
       - name: Unlighthouse assertions and client
         run: unlighthouse-ci --site www.getthit.com --budget 1 --build-static --debug --urls https://www.getthit.com/wiki/tag/website-traffic-bot
-
-      - name: Deploy report to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+      
+      - uses: actions/upload-artifact@v3
         with:
-          publish-dir: '../.unlighthouse'
-          production-branch: main
-          production-deploy: true
-          github-token: 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
-          deploy-message: "New Release Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: RLwUl8VOHH-OjQ77dPMcljtMvrE5qFKuds4WBIdFDAk
-          NETLIFY_SITE_ID: a74ab122-7377-47ab-84b3-67808603c19b
-        timeout-minutes: 1
+            name: my-artifact
+            path: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/'        
+
+     
