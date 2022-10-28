@@ -15,12 +15,12 @@ jobs:
         run: npm add -g @unlighthouse/cli puppeteer
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site www.getthit.com --budget 1 --build-static --debug
+        run: unlighthouse-ci --site www.getthit.com --budget 1 --build-static --debug --urls https://www.getthit.com/wiki/tag/website-traffic-bot
 
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: './.unlighthouse'
+          publish-dir: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthouse'
           production-branch: main
           production-deploy: true
           github-token: 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
