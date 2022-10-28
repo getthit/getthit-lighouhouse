@@ -16,15 +16,11 @@ jobs:
 
       - name: Unlighthouse assertions and client
         run: unlighthouse-ci --site www.getthit.com --budget 1 --build-static --debug --urls https://www.getthit.com/wiki/tag/website-traffic-bot
-      
-      - uses: actions/upload-artifact@v3
-        with:
-            name: my-artifact
-            path: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthouse'        
+        
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: '/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthouse'        
+          publish-dir: "/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthous"        
           production-deploy: true
         env:
           NETLIFY_AUTH_TOKEN: RLwUl8VOHH-OjQ77dPMcljtMvrE5qFKuds4WBIdFDAk
