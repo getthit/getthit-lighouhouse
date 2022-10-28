@@ -1,1 +1,34 @@
+name: Assertions and static report
 
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: npm add @unlighthouse/cli puppeteer
+
+      - name: Unlighthouse assertions and client
+        run: unlighthouse-ci --site https://www.getthit.com/ --budget 75 --build-static
+
+      - name: Deploy report to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './.unlighthouse'
+          production-branch: main
+          production-deploy: true
+          github-token: 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
+          deploy-message: "New Release Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: RLwUl8VOHH-OjQ77dPMcljtMvrE5qFKuds4WBIdFDAk
+          NETLIFY_SITE_ID: a74ab122-7377-47ab-84b3-67808603c19b
+        timeout-minutes: 1
