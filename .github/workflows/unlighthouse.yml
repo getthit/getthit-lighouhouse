@@ -37,7 +37,7 @@ jobs:
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: "/home/runner/work/getthit-lighouhouse/getthit-lighouhouse/.unlighthouse"        
+          publish-dir: "./.unlighthouse"        
           production-deploy: true
         env:
           NETLIFY_AUTH_TOKEN: RLwUl8VOHH-OjQ77dPMcljtMvrE5qFKuds4WBIdFDAk
